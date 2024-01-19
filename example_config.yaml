@@ -1,0 +1,87 @@
+settings:
+    simulation-mode: static 
+    x-bin: 100
+    t-bin: 1000
+    x-size: 25
+    t-size: 10
+    boundaries: vacuum 
+    collision: branchless
+    control: combing 
+    decay: forced 
+    collapsed-precu: false
+    control-on-collision: true
+    control-strategy: regular
+    neutron-importance: 1
+    precu-importance: 1
+    nparticles: 1000
+    groups: 3
+    families: 6
+    regions: 1
+    speed: [1.66743e9, 1.73734e7, 3.46850e5]
+    roulette-value: 0.8
+    splitting-value: 2
+    static-collision: branching 
+    static-control: wor
+    weighted-sites: false
+    passive-gen: 400
+    active-gen: 1
+    decoupling-gen: 10
+    sampling-prob: 1
+    reactivity-change: 1
+    reactivity-time: [0]
+
+tallies:
+    collision-flux: false 
+    trace-flux: false 
+    collision-correlations: false
+    trace-correlations: false 
+    collision-residence: false
+    trace-residence: false
+    position-correlations: false
+    entropy: false
+    pair-distance: false
+    family-trees: false
+    emission-density: false 
+    collision-density: false
+    kin-source: false 
+    pi-entropy: true 
+    pi-flux-col: false
+    pi-flux-trace: true 
+    pi-pair-distance: false 
+    pi-feynman-moment-rep: false
+    pi-feynman-moment-gen: false
+    pi-emission-density-rep: false 
+    pi-emission-density-gen: false
+    pi-collision-density-rep: false
+    pi-collision-density-gen: false
+
+materials:
+    - name: HOM
+      nu: [2.4, 2.4, 2.4]
+      fission: [3.0586e-3, 2.1579e-3, 5.6928e-2]
+      capture: [[9.3920991e-4, 1.5034394e-2, 7.0670812e-2],
+                [9.3020991e-4, 1.4934394e-2, 7.0600812e-2]]
+      scattering: [6.26670e-1, 1.9475751, 4.31567]
+      scattering-mat: [[4.48187e-1, 1.78483e-1, 0.00000000],
+                       [0.00000000, 1.80581110, 1.41764e-1],
+                       [0.00000000, 0.00000000, 4.31567000]]
+      xi-p: [0.878198, 0.121802, 0.]
+      speed: [1.66743e9, 1.73734e7, 3.46850e5]
+      lambda: [1.3336e-2, 3.2739e-2, 1.2078e-1, 3.0278e-1, 8.4949e-1, 2.8530]
+      beta: [2.275e-4, 1.17455e-3, 1.12138e-3, 2.51407e-3, 1.03077e-3, 4.3173e-4]
+      xi-d: [[0.52296, 0.47704, 0.],
+             [0.56487, 0.43513, 0.],
+             [0.54697, 0.45303, 0.],
+             [0.61504, 0.38496, 0.],
+             [0.59265, 0.40735, 0.],
+             [0.60533, 0.39467, 0.]]
+      a-par: 1.
+      b-par: 0.
+
+regions:
+    - start: -50
+      end: 50
+      material: HOM
+      boundary-left: true
+      boundary-right: true 
+      id: 0
